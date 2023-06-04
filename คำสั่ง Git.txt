@@ -1,0 +1,72 @@
+
+- version Control เก็บประวัติอย่างต่อเนื่องนำมาเปรียบเทียบกัน undo redo
+Distributed Version Control DVCS แก้ปัญหาการทำงานแบบรวมศูนย์โดยการโคลนฐานข้อมูลมาทั้งหมด Clone 
+Git
+git init คำสั่ง สร้าง local git repository เพื่อ Tracked project
+git add คำสั่ง พื้นที่จัดเก็บเวอร์ชัน หรือเก็บประวัติการแก้ไข
+git commit คำสั่งเก็บข้อมูลการแก้ไขไว้ที่เครื่องของ Dev 
+git push คำสั่งนำการแก้ไขขึ้น server
+touch คำสั่งสร้างไฟล์
+--------------------------------------
+git add <file_name> ทีละไฟล์
+git add *.html หลายๆไฟล์พร้อมนามสกุล
+git add . เพิ่มทุกไฟลใน Directory ปัจจบัน
+git rm -r --cached . ลยทั้งหมด
+git rm --cached <file_name> ลบระบุไฟล์
+
+git status เช็คสถานะ
+----------------
+การเก็บประวัติการแก้ไขถาวร Commit
+git commit -m "Log Message"
+m คือพารามิเตอร์สำหรับใส่ข้อความช่วยจำ Log Message เพื่ออธิบายการ commit แต่ละเวอร์ชัน
+เมื่อ Commit ไปแล้วจะได้ SHA-1 Hash เป็น Commit ID (รหัสประจำเวอร์ชัน)(SHA- Hash = 40 ตัวอักษร แต่ตอนอ้างอิงใช้แค่ 7 ตัวอักษรแรก)
+----------------------------------------
+ดูประวัติ Commit (log)
+
+git log
+git log --oneline แสดงแต่ละ log เหลือบรรทัดเดียว
+git log --graph แสดงเป็นเส้น   Branch ให้ดูง่ายขึ้น
+---------------------------
+เปรียบเทียบเวอร์ชัน diff
+
+git diff <commit_id> // แบบระบุ Commit ID
+git diff <commit_id> <commit_id> เปรียบเทียบระหว่าง สอง Commit
+
+สีสถานะ
+* แสดงเครื่องหมาย - และตัวอักษรสีแดงในบรรทัดเดิมก่อนถูกแก้ไขและถูกลบ
+* แสดงเครื่องหมาย + และตัวอักษรสีเขียวในบรรทัดเดิมที่ถูกแก้ไขและเพิ่มใหม่
+------------------------
+ยกเลิกการแก้ไขไฟล์ Check-out
+
+git checkout <file-name>
+
+-----------------------
+Git Reset
+เป็นการย้อนเวอร์ชั่นให้กลับไปอยู่ในสภาพก่อนที่จะ add ไฟล์เข้าสู่ Staging Area 
+ซึ่งบางครั้งมีการเพิ่มไฟล์ลงใน Staging Area โดยไม่ตั้งใจ สามารถเอาออกได้ โดยใช้ git reset 
+-------------------------
+Git Reset ย้อนคืนเวอร์ชัน
+git reset --(option) <commit_id>
+
+soft 
+mix
+hard ลบไฟล์ทั้งหมดที่เกินเวอร์ชั่นที่เลือก
+-------------------------------------
+Git Branching
+
+git branch
+git checkout
+git mergeเ
+ 
+แสดงชื่อ Brance
+git branch
+การสลับและสร้าง branch
+git checkout -b <ชื่อ branch> ห้ามคั้งชื่อเว้นวรรค
+การลบ
+git branch -d <ชื่อ branch>
+สลับไป brance ที่ต้องการ
+git chackout <ชื่อ branch>
+กลับไป branch หลัก
+git checkout master
+การรวม
+git merge <ชื่อ branch> 
