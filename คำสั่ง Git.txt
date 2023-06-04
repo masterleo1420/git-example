@@ -48,8 +48,8 @@ Git Reset
 Git Reset ย้อนคืนเวอร์ชัน
 git reset --(option) <commit_id>
 
-soft 
-mix
+soft ใช้เพื่อลบ Commit ทั้งหมดที่อยู่หลัง Commit ID แล้วนําไฟล์ที่เคยอยู่ใน Commit นั้นกลับมายัง Staging Area
+mix ใช้เพื่อลบ Commit ทั้งหมดที่อยู่หลัง Commit ID แล้วนําไฟล์ที่เคยอยู่ใน Commit นั้นกลับมายัง Working Directory
 hard ลบไฟล์ทั้งหมดที่เกินเวอร์ชั่นที่เลือก
 -------------------------------------
 Git Branching
